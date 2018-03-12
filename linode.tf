@@ -1,19 +1,3 @@
-resource "aws_route53_record" "apex_ip4" {
-  zone_id = "${aws_route53_zone.primary.zone_id}"
-  name    = ""
-  ttl     = "3600"
-  type    = "A"
-  records = ["69.164.211.26"]
-}
-
-resource "aws_route53_record" "apex_ip6" {
-  zone_id = "${aws_route53_zone.primary.zone_id}"
-  name    = ""
-  ttl     = "3600"
-  type    = "AAAA"
-  records = ["2600:3c03::f03c:91ff:fe96:36fd"]
-}
-
 resource "aws_route53_record" "nj1_ip4" {
   zone_id = "${aws_route53_zone.primary.zone_id}"
   name    = "nj1"
