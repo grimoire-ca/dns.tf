@@ -1,0 +1,18 @@
+#!/bin/bash -e
+
+function aws_delegation() {
+  terraform output -json | jq -r '.name_servers.value[]' | sort
+}
+
+function dns_delegation() {
+  dig +short NS grimoire.ca | sed -e 's,\.$,,' | sort
+}
+
+if ! diff -u <(aws_delegation) <(dns_delegation); then
+  echo
+  echo "!!! Delegation out of date!"
+  echo "    Lines with - above are missing from the deployed zone."
+  echo "    Lines with + above should be removed from the deployed zone."
+  echo
+  echo "    Remedy this via the rebel.ca console."
+fi
