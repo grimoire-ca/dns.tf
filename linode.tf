@@ -20,7 +20,7 @@ resource "aws_route53_record" "mx" {
   name    = ""
   ttl     = "3600"
   type    = "MX"
-  records = ["10 ${aws_route53_record.nj1_ip4.fqdn}"]
+  records = ["10 ${aws_route53_record.mail.fqdn}"]
 }
 
 
