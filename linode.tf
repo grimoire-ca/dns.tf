@@ -48,6 +48,14 @@ resource "aws_route53_record" "ottgaming" {
   records = ["${aws_route53_record.nj1_ip4.fqdn}"]
 }
 
+resource "aws_route53_record" "tumblr" {
+  zone_id = "${aws_route53_zone.primary.zone_id}"
+  name    = "tumblr"
+  ttl     = "3600"
+  type    = "CNAME"
+  records = ["${aws_route53_record.nj1_ip4.fqdn}"]
+}
+
 resource "aws_route53_record" "znc" {
   zone_id = "${aws_route53_zone.primary.zone_id}"
   name    = "znc"
