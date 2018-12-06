@@ -1,3 +1,6 @@
+# Hosts and other RRs that point to Linode resources. These are largely legacy
+# services managed outside of Terraform; over time, I'd like this set ot shrink.
+
 resource "aws_route53_record" "nj1_ip4" {
   zone_id = "${aws_route53_zone.primary.zone_id}"
   name    = "nj1"

@@ -12,14 +12,14 @@ provider "aws" {
   region = "ca-central-1"
 }
 
-resource "aws_route53_zone" "primary" {
-  name = "grimoire.ca"
+module "grimoire_ca" {
+  source = "./modules/grimoire.ca"
 }
 
 output "name_servers" {
-  value = "${aws_route53_zone.primary.name_servers}"
+  value = "${module.grimoire_ca.name_servers}"
 }
 
 output "zone_id" {
-  value = "${aws_route53_zone.primary.zone_id}"
+  value = "${module.grimoire_ca.zone_id}"
 }
