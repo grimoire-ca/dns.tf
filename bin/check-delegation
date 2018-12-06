@@ -1,18 +1,29 @@
 #!/bin/bash -e
 
 function aws_delegation() {
-  terraform output -json | jq -r '.name_servers.value[]' | sort
+  local OUTPUT=${1//./_}_name_servers
+  terraform output -json | jq -r --arg OUTPUT "$OUTPUT" '.[$OUTPUT].value[]' | sort
 }
 
 function dns_delegation() {
-  dig +short NS grimoire.ca | sed -e 's,\.$,,' | sort
+  dig +short NS "$1" | sed -e 's,\.$,,' | sort
 }
 
-if ! diff -u <(aws_delegation) <(dns_delegation); then
-  echo
-  echo "!!! Delegation out of date!"
-  echo "    Lines with - above are missing from the deployed zone."
-  echo "    Lines with + above should be removed from the deployed zone."
-  echo
-  echo "    Remedy this via the gandi.net console."
+if [ $# -eq 0 ]; then
+  set -- grimoire.ca
 fi
+
+while [ $# -gt 0 ]; do
+  ZONE=$1
+  shift
+
+  if ! diff -u <(aws_delegation "$ZONE") <(dns_delegation "$ZONE"); then
+    echo
+    echo "!!! Delegation out of date for zone: $ZONE"
+    echo
+    echo "    Lines with - above are missing from the deployed zone."
+    echo "    Lines with + above should be removed from the deployed zone."
+    echo
+    echo "    Remedy this via the gandi.net console."
+  fi
+done
