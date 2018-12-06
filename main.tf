@@ -20,6 +20,10 @@ module "unreasonent_com" {
   source = "./modules/unreasonent.com"
 }
 
+module "distant_shore_com" {
+  source = "./modules/distant-shore.com"
+}
+
 # Deprecated - use grimoire_ca_name_servers to disambiguate the domain name.
 output "name_servers" {
   value = "${module.grimoire_ca.name_servers}"
@@ -44,4 +48,12 @@ output "unreasonent_com_name_servers" {
 
 output "unreasonent_com_zone_id" {
   value = "${module.unreasonent_com.zone_id}"
+}
+
+output "distant_shore_com_name_servers" {
+  value = "${module.distant_shore_com.name_servers}"
+}
+
+output "distant_shore_com_zone_id" {
+  value = "${module.distant_shore_com.zone_id}"
 }

@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 function aws_delegation() {
-  local OUTPUT=${1//./_}_name_servers
+  local OUTPUT=${1//[-.]/_}_name_servers
   terraform output -json | jq -r --arg OUTPUT "$OUTPUT" '.[$OUTPUT].value[]' | sort
 }
 
@@ -10,7 +10,7 @@ function dns_delegation() {
 }
 
 if [ $# -eq 0 ]; then
-  set -- grimoire.ca unreasonent.com
+  set -- grimoire.ca unreasonent.com distant-shore.com
 fi
 
 while [ $# -gt 0 ]; do
