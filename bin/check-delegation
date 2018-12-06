@@ -14,5 +14,5 @@ if ! diff -u <(aws_delegation) <(dns_delegation); then
   echo "    Lines with - above are missing from the deployed zone."
   echo "    Lines with + above should be removed from the deployed zone."
   echo
-  echo "    Remedy this via the rebel.ca console."
+  echo "    Remedy this via the gandi.net console."
 fi
