@@ -35,14 +35,6 @@ resource "aws_route53_record" "mail" {
   records = ["${aws_route53_record.nj1_ip4.fqdn}"]
 }
 
-resource "aws_route53_record" "moo" {
-  zone_id = "${aws_route53_zone.primary.zone_id}"
-  name    = "moo"
-  ttl     = "3600"
-  type    = "CNAME"
-  records = ["${aws_route53_record.nj1_ip4.fqdn}"]
-}
-
 resource "aws_route53_record" "ottgaming" {
   zone_id = "${aws_route53_zone.primary.zone_id}"
   name    = "ottgaming"
