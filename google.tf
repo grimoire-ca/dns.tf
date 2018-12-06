@@ -14,7 +14,6 @@
 # after the verification succeeds. (DNS changes may take some time and if we do
 # not find the record immediately, we will check for it periodically.)
 
-
 resource "aws_route53_record" "google_postmaster_verification" {
   zone_id = "${aws_route53_zone.primary.zone_id}"
   name    = ""
