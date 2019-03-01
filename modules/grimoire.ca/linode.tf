@@ -18,15 +18,6 @@ resource "aws_route53_record" "nj1_ip6" {
 }
 
 
-resource "aws_route53_record" "mx" {
-  zone_id = "${aws_route53_zone.primary.zone_id}"
-  name    = ""
-  ttl     = "3600"
-  type    = "MX"
-  records = ["10 ${aws_route53_record.mail.fqdn}"]
-}
-
-
 resource "aws_route53_record" "mail" {
   zone_id = "${aws_route53_zone.primary.zone_id}"
   name    = "mail"
