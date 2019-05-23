@@ -1,5 +1,5 @@
 resource "aws_route53_record" "mx" {
-  zone_id = "${aws_route53_zone.primary.zone_id}"
+  zone_id = aws_route53_zone.primary.zone_id
   name    = ""
   ttl     = "3600"
   type    = "MX"
@@ -10,7 +10,7 @@ resource "aws_route53_record" "mx" {
 }
 
 resource "aws_route53_record" "spf" {
-  zone_id = "${aws_route53_zone.primary.zone_id}"
+  zone_id = aws_route53_zone.primary.zone_id
   name    = ""
   ttl     = "3600"
   type    = "TXT"
@@ -18,3 +18,4 @@ resource "aws_route53_record" "spf" {
     "v=spf1 include:spf.messagingengine.com ?all",
   ]
 }
+

@@ -7,11 +7,12 @@ terraform {
 }
 
 provider "aws" {
-  version = "~> 1.11"
+  version = "~> 2.11"
 
   region = "ca-central-1"
 }
 
 provider "external" {
-  version = "~> 1.0"
+  version = "~> 1.1.2"
 }
+
