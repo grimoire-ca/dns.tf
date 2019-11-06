@@ -4,16 +4,18 @@ import dns.resolver as dr
 import json
 import sys
 
-a = dr.query('readthedocs.io', 'A')
-aaaa = dr.query('readthedocs.io', 'AAAA')
+query = json.load(sys.stdin)
+
+host = query['host']
+
+a = dr.query(host, 'A')
 
 # Terrafrom only supports strings in results from external data sources (see
 # https://github.com/hashicorp/terraform/issues/12249). Since DNS results never
 # have spaces in them, this isn't a huge problem: space-delimited data will
 # work.
 result = {
-    'ip4': ' '.join(sorted(entry.address for entry in a)),
-    'ip6': ' '.join(sorted(entry.address for entry in aaaa)),
+    'A': ' '.join(sorted(entry.address for entry in a)),
 }
 
 json.dump(result, sys.stdout)
