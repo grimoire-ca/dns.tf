@@ -3,6 +3,6 @@ resource "aws_route53_record" "play" {
   name    = "play"
   ttl     = "300"
   type    = "A"
-  records = ["66.23.202.195"]
+  records = ["104.206.80.146"]
 }
 
