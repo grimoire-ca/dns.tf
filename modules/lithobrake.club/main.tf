@@ -6,3 +6,6 @@ resource "aws_route53_zone" "primary" {
   }
 }
 
+resource "ns1_zone" "primary" {
+  zone = "lithobrake.club"
+}

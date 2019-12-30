@@ -16,3 +16,6 @@ provider "external" {
   version = "~> 1.1.2"
 }
 
+provider "ns1" {
+  version = "~> 1.6"
+}
