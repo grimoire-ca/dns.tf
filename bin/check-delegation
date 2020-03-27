@@ -10,7 +10,7 @@ function dns_delegation() {
 }
 
 if [ $# -eq 0 ]; then
-  set -- grimoire.ca unreasonent.com lithobrake.club
+  set -- grimoire.ca unreasonent.com
 fi
 
 while [ $# -gt 0 ]; do

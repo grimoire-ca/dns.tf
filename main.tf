@@ -25,7 +25,3 @@ output "unreasonent_com_name_servers" {
 output "unreasonent_com_zone_id" {
   value = module.unreasonent_com.zone_id
 }
-
-output "lithobrake_club_name_servers" {
-  value = module.lithobrake_club.name_servers
-}
