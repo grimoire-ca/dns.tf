@@ -37,3 +37,13 @@ resource "aws_route53_record" "spf" {
   ]
 }
 
+# DKIM for Fastmail
+resource "aws_route53_record" "dkim" {
+  for_each = toset(["fm1", "fm2", "fm3"])
+
+  zone_id = aws_route53_zone.primary.zone_id
+  name    = "${each.key}._domainkey"
+  ttl     = "3600"
+  type    = "CNAME"
+  records = ["${each.key}.grimoire.ca.dkim.fmhosted.com"]
+}
