@@ -9,7 +9,3 @@ module "lithobrake_club" {
 output "grimoire_ca_zone_id" {
   value = module.grimoire_ca.zone_id
 }
-
-output "lithobrake_club_name_servers" {
-  value = module.lithobrake_club.name_servers
-}

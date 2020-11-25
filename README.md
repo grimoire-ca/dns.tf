@@ -2,12 +2,9 @@
 
 This repository contains Terraform manifests to manage a number of DNS zones. The zones are registered through gandi.net.
 
-To sanity-check the deployed zones, run the included `bin/check-delegation` script. This will output instructions if the current DNS delegation (configured through the registrar) differs from AWS' delegation configuration (as reported by Route53).
-
 This repository provides the following outputs for use in remote state:
 
 * `grimoire_ca_zone_id`: The AWS ID of the `grimoire.ca` zone, as needed to create records in that zone.
-* `lithobrake_club_name_servers`: The authoritative nameservers for the zone `lithobrake.club.`
 
 To access these outputs, add the following data provider to your manifest:
 
