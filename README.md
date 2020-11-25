@@ -6,10 +6,8 @@ To sanity-check the deployed zones, run the included `bin/check-delegation` scri
 
 This repository provides the following outputs for use in remote state:
 
-* `grimoire_ca_name_servers`: The authoritative nameservers for the zone `grimoire.ca.`
 * `grimoire_ca_zone_id`: The AWS ID of the `grimoire.ca` zone, as needed to create records in that zone.
 * `lithobrake_club_name_servers`: The authoritative nameservers for the zone `lithobrake.club.`
-* `lithobrake_club_zone_id`: The AWS ID of the `lithobrake.club` zone, as needed to create records in that zone.
 
 To access these outputs, add the following data provider to your manifest:
 
