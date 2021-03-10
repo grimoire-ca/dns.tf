@@ -23,9 +23,12 @@ resource "gandi_domain" "lithobrake_club" {
         mail_obfuscated  = true
         phone            = "+1.4165542902"
         state            = "CA-ON"
-        street_addr      = "#1 339 Dovercourt Rd"
+        street_addr      = <<-ADDRESS
+            230 King St E
+            Unit 308
+        ADDRESS
         type             = "person"
-        zip              = "M6J 3E4"
+        zip              = "M5A 1K5"
     }
 
     billing {
@@ -36,11 +39,14 @@ resource "gandi_domain" "lithobrake_club" {
 
         given_name  = "Owen"
         family_name = "Jacobson"
-        street_addr = "#1 339 Dovercourt Rd"
+        street_addr = <<-ADDRESS
+            230 King St E
+            Unit 308
+        ADDRESS
         city        = "Toronto"
         state       = "CA-ON"
         country     = "CA"
-        zip         = "M6J 3E4"
+        zip         = "M5A 1K5"
 
         extra_parameters = {
             birth_city       = ""
@@ -61,11 +67,14 @@ resource "gandi_domain" "lithobrake_club" {
 
         given_name  = "Owen"
         family_name = "Jacobson"
-        street_addr = "#1 339 Dovercourt Rd"
+        street_addr = <<-ADDRESS
+            230 King St E
+            Unit 308
+        ADDRESS
         city        = "Toronto"
         state       = "CA-ON"
         country     = "CA"
-        zip         = "M6J 3E4"
+        zip         = "M5A 1K5"
 
         extra_parameters = {
             birth_city       = ""
@@ -86,11 +95,15 @@ resource "gandi_domain" "lithobrake_club" {
 
         given_name  = "Owen"
         family_name = "Jacobson"
-        street_addr = "#1 339 Dovercourt Rd"
+        street_addr = <<-ADDRESS
+            230 King St E
+            Unit 308
+        ADDRESS
         city        = "Toronto"
         state       = "CA-ON"
         country     = "CA"
-        zip         = "M6J 3E4"
+        zip         = "M5A 1K5"
+
 
         extra_parameters = {
             birth_city       = ""
